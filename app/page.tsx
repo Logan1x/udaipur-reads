@@ -2,6 +2,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Book {
   bookName: string;
@@ -68,27 +69,27 @@ export default function Home() {
     setIsLoading(false);
   };
   return (
-    <main className="grow flex flex-col items-center justify-between p-20 bg-slate-50 text-slate-800">
-      <div className="container text-center">
+    <main className="grow flex flex-col items-center justify-center px-4 py-20 md:p-20 bg-slate-50 text-slate-800">
+      <div className="md:container text-center h-full">
         {isLoading ? (
           <h1>
             Loading <span className="animate-ping">...</span>
           </h1>
         ) : books.length === 0 ? (
-          <>
-            <h1 className="mt-2 text-3xl">
+          <div className="flex justify-center items-center flex-col h-full">
+            <h1 className=" text-5xl md:mt-2 md:text-5xl">
               Welcome to Udaipur Book Club&apos;s Showpage.
             </h1>
-            <p className="mb-2 text-md text-slate-600">
+            <p className="mb-2 py-2 text-lg text-slate-600">
               Click below to know our favorites.
             </p>
             <button
               onClick={getData}
-              className="bg-slate-900 text-slate-50 px-4 py-2 mt-4 rounded shadow-md hover:bg-slate-800  transition-all duration-300"
+              className="text-xl px-6 py-2 md:text-md bg-slate-900 text-slate-50 md:px-4 md:py-2 mt-2 rounded shadow-md hover:bg-slate-800  transition-all duration-300"
             >
-              Get Books
+              Explore
             </button>
-          </>
+          </div>
         ) : (
           <>
             <h1 className="mb-6 text-3xl">Past picks</h1>
@@ -96,18 +97,18 @@ export default function Home() {
               {books.map((book) => (
                 <Link
                   key={book.bookName}
-                  className="border w-48 p-2 flex flex-col gap-1 rounded shadow-sm hover:bg-slate-100 hover:shadow-md transform hover:scale-105 transition-all duration-300"
+                  className="border w-36 md:w-48 p-2 flex flex-col gap-1 rounded shadow-sm hover:bg-slate-100 hover:shadow-md transform hover:scale-105 transition-all duration-300"
                   href={book.goodReadsURL}
                   target="_blank"
                 >
                   <img
-                    className="justify-center w-48 h-72 object-cover rounded-sm"
+                    className="justify-center w-36 h-44 md:w-48 md:h-72 object-cover rounded-sm"
                     src={book.bookCover}
                     alt={book.bookName}
                   />
                   <h2
                     className={
-                      book.bookName.length > 20
+                      book.bookName.length > 15
                         ? `font-semibold truncate ...`
                         : "font-semibold"
                     }
