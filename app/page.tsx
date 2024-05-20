@@ -117,7 +117,6 @@ export default function Home() {
                   <p>{book.author}</p>
                   <div className="text-xs text-slate-500 flex items-center">
                     <svg
-                      dataSlot="icon"
                       fill="none"
                       strokeWidth={1.5}
                       stroke="currentColor"
@@ -137,7 +136,6 @@ export default function Home() {
                   <p className="text-xs text-slate-500">
                     <span>
                       <svg
-                        dataSlot="icon"
                         fill="none"
                         strokeWidth={1.5}
                         stroke="currentColor"

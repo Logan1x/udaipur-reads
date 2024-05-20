@@ -9,7 +9,7 @@ export async function GET() {
     );
 
     return NextResponse.json(rssText.data, { status: 200 });
-  } catch (e) {
+  } catch (e: any) {
     return NextResponse.json({ error: e.message }, { status: 500 });
   }
 }
