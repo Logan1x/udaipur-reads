@@ -77,7 +77,7 @@ export default function Home() {
         ) : books.length === 0 ? (
           <>
             <h1 className="mt-2 text-3xl">
-              Welcome to Udaipur Book Club's Showpage.
+              Welcome to Udaipur Book Club&apos;s Showpage.
             </h1>
             <p className="mb-2 text-md text-slate-600">
               Click below to know our favorites.
